@@ -1,11 +1,22 @@
-scoreboard players enable @a changeTeam
+scoreboard players enable @a AFK
+scoreboard players enable @a Kommunisten
+scoreboard players enable @a Allianz
+scoreboard players enable @a Passiv
 
 #---
-execute at @a[scores={changeTeam=1..}] run summon minecraft:chest_minecart ~ ~5 ~ {Invulnerable:1b,Tags:["ChangeTeamMinecart"]}
-tellraw @a[scores={changeTeam=1..}] {"text":"*bonk*","color":"dark_red"}
 
-scoreboard players add @e[tag=ChangeTeamMinecart] deleteMinecartTimer 1
+execute as @a[scores={AFK=1..}] run team join AFK
+execute as @a[scores={Kommunisten=1..}] run team join Kommunisten
+execute as @a[scores={Allianz=1..}] run team join Allianz
+execute as @a[scores={Passiv=1..}] run team join Passiv
 
 #---
-scoreboard players set @a[scores={changeTeam=1..}] changeTeam 0
-kill @e[tag=ChangeTeamMinecart, scores={deleteMinecartTimer=1200..}]
+
+scoreboard players set @a[scores={AFK=1..}] AFK 0
+scoreboard players set @a[scores={Kommunisten=1..}] Kommunisten 0
+scoreboard players set @a[scores={Allianz=1..}] Allianz 0
+scoreboard players set @a[scores={Passiv=1..}] Passiv 0
+
+#---
+
+team join Passiv @a[team=]
