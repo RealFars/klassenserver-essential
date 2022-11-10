@@ -1,21 +1,12 @@
-scoreboard players enable @a AFK
-scoreboard players enable @a Kommunisten
-scoreboard players enable @a Allianz
-scoreboard players enable @a Passiv
+scoreboard players enable @a changeTeam
 
 #---
 
-execute as @a[scores={AFK=1..}] run team join AFK
-execute as @a[scores={Kommunisten=1..}] run team join Kommunisten
-execute as @a[scores={Allianz=1..}] run team join Allianz
-execute as @a[scores={Passiv=1..}] run team join Passiv
+tellraw @a[scores={changeTeam=1..}]  ["",{"text":"Click the team you want to join:","bold":true,"underlined":true},"\n",{"text":"AFK","color":"gray","clickEvent":{"action":"run_command","value":"/team join AFK @s"}},"\n",{"text":"Passiv","clickEvent":{"action":"run_command","value":"/team join Passiv @s"}},"\n",{"text":"Allianz","color":"green","clickEvent":{"action":"run_command","value":"/team join Allianz @s"}},"\n",{"text":"Mafia","color":"black","clickEvent":{"action":"run_command","value":"/team join Mafia @s"}}]
 
 #---
 
-scoreboard players set @a[scores={AFK=1..}] AFK 0
-scoreboard players set @a[scores={Kommunisten=1..}] Kommunisten 0
-scoreboard players set @a[scores={Allianz=1..}] Allianz 0
-scoreboard players set @a[scores={Passiv=1..}] Passiv 0
+scoreboard players set @a[scores={changeTeam=1..}] changeTeam 0
 
 #---
 

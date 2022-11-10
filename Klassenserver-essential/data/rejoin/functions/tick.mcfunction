@@ -1,3 +1,2 @@
-tellraw @a[scores={leave=1..}] {"text":"Willkommen zurück, ändere dein Team mit /trigger","color":"aqua","bold": true}
-
+tellraw @a[scores={leave=1..}] ["",{"text":"Welcome back,","italic":true,"color":"aqua"},{"selector":"@a[scores={leave=1..}]","italic":true,"color":"aqua"},{"text":"! Change your Team with /trigger changeTeam.","italic":true,"color":"aqua","clickEvent":{"action":"suggest_command","value":"/trigger changeTeam"},"hoverEvent":{"action":"show_text","contents":["Team ändern?"]}}]
 scoreboard players set @a[scores={leave=1..}] leave 0
